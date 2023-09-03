@@ -494,7 +494,7 @@ async function searchByFLetter(name) {
     } else {
       throw new Error("Error will This Input Ya User");
     }
-    spinnerStart();
+    
     const res = await fetch(API);
 
     if (!res.ok) {
@@ -503,10 +503,9 @@ async function searchByFLetter(name) {
 
     const data = await res.json();
     const meals = await data.meals;
-    spinnerStop();
-
+    
     displayMealsByFilter(meals);
-    console.log(meals);
+    // console.log(meals);
 
     // console.log(meals[0]);
   } catch (error) {
@@ -522,11 +521,12 @@ async function searchByName(name) {
 
   try {
     if (regex.test(name)) {
-      API = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
+      let rigthName = name
+      API = `https://www.themealdb.com/api/json/v1/1/search.php?s=${rigthName}`;
     } else {
       throw new Error("Error will This Input Ya User");
     }
-    spinnerStart();
+    
     const res = await fetch(API);
 
     if (!res.ok) {
@@ -535,7 +535,7 @@ async function searchByName(name) {
 
     const data = await res.json();
     const meals = await data.meals;
-    spinnerStop();
+    
 
     displayMealsByFilter(meals);
     console.log(meals);
