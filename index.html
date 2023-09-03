@@ -1,0 +1,191 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <section class="bg-danger">
+    <div class="row w-100 h-100 m-0 p-0">
+      <div class="col-10 bg-black d-flex flex-column justify-content-between headerToClose">
+        <div class="NavContiner py-2">
+          <ul class="p-0 text-light">
+            <li class="py-2" onclick="getAllMeals()">Home</li>
+            <li class="py-2" onclick="openSearchSection()">Search</li>
+            <li class="py-2" onclick="getAllCategories()">Categories</li>
+            <li class="py-2" onclick="getAllAreas()">Area</li>
+            <li class="py-2" onclick="getAllIng()">Ingredients</li>
+            <li class="py-2" onclick="openContactUsSection()">Contact Us</li>
+          </ul>
+        </div>
+        <div class="footer text-light py-2">
+          <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <p>Copyright Â© 2019 All Rights Reserved.</p>
+        </div>
+      </div>
+
+      <div
+        class="col-2 nav-header d-flex flex-column justify-content-between py-4 text-center px-2 bg-white text-black">
+        <img class="" src="images/logo.png" alt="" />
+        <i id="btnCloseOpen" class="fa-solid fa-xmark"></i>
+        <div>
+          <i class="fa-solid fa-globe d-block"></i>
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+        <!-- When Open "fa-solid open-close-icon fa-2x fa-x" -->
+        <!-- When Close "fa-solid open-close-icon fa-2x fa-align-justify" -->
+      </div>
+    </div>
+  </section>
+  <main class="bg-black min-vh-100 text-light">
+    <div class="container">
+      <div class="row py-5 displayContainer"></div>
+    </div>
+  </main>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+
+<!-- Card To fill Meal -->
+<!-- 
+       <div class="col-lg-3 col-md-6 col-sm-12 mt-4">
+            <div class="card">
+              <div class="imgContainer">
+                <img class="w-100" src="images/58oia61564916529.jpg" alt="" />
+              </div>
+              <div class="imgTitle text-black">
+                <span>Corba</span>
+              </div>
+            </div>
+          </div>
+ -->
+
+<!-- Display Meal Description-->
+<!-- 
+      <div class="col-lg-4 ">
+            <div class="imgCon text-light border-0">
+              <img class="w-100" src="images/58oia61564916529.jpg" alt="" />
+            </div>
+            <p class="fs-2 fw-bold">Corba</p>
+          </div>
+          <div class="col-lg-8  text-light">
+            <h1>Instructions</h1>
+            <p>
+              Pick through your lentils for any foreign debris, rinse them 2 or
+              3 times, drain, and set aside. Fair warning, this will probably
+              turn your lentils into a solid block that you’ll have to break up
+              later In a large pot over medium-high heat, sauté the olive oil
+              and the onion with a pinch of salt for about 3 minutes, then add
+              the carrots and cook for another 3 minutes. Add the tomato paste
+              and stir it around for around 1 minute. Now add the cumin,
+              paprika, mint, thyme, black pepper, and red pepper as quickly as
+              you can and stir for 10 seconds to bloom the spices. Congratulate
+              yourself on how amazing your house now smells. Immediately add the
+              lentils, water, broth, and salt. Bring the soup to a (gentle)
+              boil. After it has come to a boil, reduce heat to medium-low,
+              cover the pot halfway, and cook for 15-20 minutes or until the
+              lentils have fallen apart and the carrots are completely cooked.
+              After the soup has cooked and the lentils are tender, blend the
+              soup either in a blender or simply use a hand blender to reach the
+              consistency you desire. Taste for seasoning and add more salt if
+              necessary. Serve with crushed-up crackers, torn up bread, or
+              something else to add some extra thickness. You could also use a
+              traditional thickener (like cornstarch or flour), but I prefer to
+              add crackers for some texture and saltiness. Makes great
+              leftovers, stays good in the fridge for about a week.
+            </p>
+            <p>Area : Turkish</p>
+            <p>Category : Side</p>
+            <p>Recipes :</p>
+            <div class="recipesContainer">
+              <div class="alert alert-info d-inline mx-1 py-1" role="alert">
+                simple!
+              </div>
+              <div class="alert alert-info d-inline mx-1 py-1" role="alert">
+                simple!
+              </div>
+              <div class="alert alert-info d-inline mx-1 py-1" role="alert">
+                simple!
+              </div>
+            </div>
+            <p>Tags :</p>
+            <div class="tags">
+              <div class="alert alert-danger d-inline mx-1 py-1" role="alert">
+                simple!
+              </div>
+              <div class="alert alert-danger d-inline mx-1 py-1" role="alert">
+                simple!
+              </div>
+            </div>
+            <div class="p-3">
+                <button type="button" class="btn btn-success">Source</button>
+                <button type="button" class="btn btn-danger">Youtube</button>
+            </div>
+          </div>
+ -->
+
+<!-- Card To Category -->
+<!-- 
+    <div class="col-lg-3 col-md-6 col-sm-12 mt-4">
+        <div class="card">
+            <div class="imgContainer">
+                <img class="w-100" src="images/58oia61564916529.jpg" alt="" />
+            </div>
+              <div class="imgTitle text-black">
+                <div class="">CategoryName</div> 
+                <div class="fs-5 text-center text-muted fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, laborum!</div> 
+            </div>
+        </div>
+    </div>
+-->
+
+<!-- Card To Ingridient -->
+<!-- 
+
+    <div class="col-lg-3 col-md-6 col-sm-12 mt-4">
+            <div class="ingCard text-center fs-2">
+              <div class="icon"><i class="fa-solid fa-utensils"></i></div>
+              <div class="text-light fw-bold">strIngredient</div>
+              <div class="text-light fs-5">strDescription</div>
+            </div>
+          </div>
+ -->
+
+<!-- Search To Append under Main -->
+<!-- 
+    <div class="ddddd text-center">
+        <div class="row w-100 py-3 justify-content-center text-center text-light">
+          <input
+            class="form-control w-25 bg-dark col-lg-6 text-light"
+            type="text"
+            name="SearchByName"
+            placeholder="Search By Name"
+            id="byName"
+          />
+          <input
+            class="form-control w-25 bg-dark col-lg-6 text-light mx-5"
+            type="text"
+            name="SearchByCharacter"
+            placeholder="Search By First character"
+            id="byChar"
+          />
+        </div>
+      </div>
+ -->
+
+<!-- 
+           <div class="spinner">
+          <div class="spinner-border d-none" id="spinnerDiv"></div>
+        </div>
+
+  -->
