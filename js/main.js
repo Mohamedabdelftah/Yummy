@@ -581,57 +581,58 @@ function inputsValidation(inputValue) {
     case "nameInput":
       let nameInputRegex = /^[A-Za-z]*$/;
       if (nameInputRegex.test(inputValue.value)) {
-        console.log("Valid Input");
+        // console.log("Valid Input");
         nameInputStatus = true;
         console.log(nameInputStatus);
         $("#nameAlert").addClass("d-none");
+    
       } else {
-        console.log("Error Input");
+        // console.log("Error Input");
         nameInputStatus = false;
-        $("#nameAlert").toggleClass("d-none");
+        // $("#nameAlert").toggleClass("d-none");
+        $("#nameAlert").removeClass("d-none");
         
       }
       break;
     case "emailInput":
       let emailInput = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (emailInput.test(inputValue.value)) {
-        console.log("Valid Input");
+        // console.log("Valid Input");
         emailInputStatus = true;
         $("#emailAlert").addClass("d-none");
       } else {
-        console.log("Error Input");
+        // console.log("Error Input");
         emailInputStatus = false;
+        $("#emailAlert").removeClass("d-none");
 
-        $("#emailAlert").toggleClass("d-none");
       }
 
       break;
     case "phoneInput":
       let phoneInput = /^(?:\+20|0)(?:1\d{9}|[2-5]\d{7})$/;
       if (phoneInput.test(inputValue.value)) {
-        console.log("Valid Input");
+        // console.log("Valid Input");
         $("#phoneAlert").addClass("d-none");
-
         phoneInput = true;
       } else {
-        console.log("Error Input");
+        // console.log("Error Input");
         phoneInput = false;
+        $("#phoneAlert").removeClass("d-none");
+    
 
-        $("#phoneAlert").toggleClass("d-none");
       }
 
       break;
     case "ageInput":
-      let ageInput = /^\d+$/;
-      if (ageInput.test(inputValue.value)) {
-        console.log("Valid Input");
+      // let ageInput = /^\d+$/;
+      if (inputValue.value > 0 && inputValue.value < 100) {
+        // console.log("Valid Input");
         ageInputStatus = true;
         $("#ageAlert").addClass("d-none");
       } else {
-        console.log("Error Input");
+        // console.log("Error Input");
         ageInputStatus = false;
-
-        $("#ageAlert").toggleClass("d-none");
+        $("#ageAlert").removeClass("d-none");
       }
 
       break;
@@ -644,8 +645,7 @@ function inputsValidation(inputValue) {
       } else {
         console.log("Error Input");
         passwordInputStatus = false;
-
-        $("#passwordAlert").toggleClass("d-none");
+        $("#passwordAlert").removeClass("d-none");
       }
 
       break;
@@ -653,13 +653,14 @@ function inputsValidation(inputValue) {
       // console.log(inputValue.value == password)
       // console.log($('#passwordInput').val())
       if (inputValue.value == $("#passwordInput").val()) {
-        console.log("Valid Input");
+        // console.log("Valid Input");
         repasswordInputStatus = true;
         $("#repasswordAlert").addClass("d-none");
       } else {
-        console.log("Error Input pass2");
+        // console.log("Error Input pass2");
         repasswordInputStatus = false;
-        $("#repasswordAlert").toggleClass("d-none");
+        $("#repasswordAlert").removeClass("d-none");
+
       }
 
       break;
