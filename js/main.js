@@ -74,15 +74,12 @@ async function getAllMeals() {
     const meals = await data.meals;
     spinnerStop();
     displayMeals(meals);
-
-    // console.log(meals);
   } catch (error) {
     console.log(error);
 
     displayError(error);
   } finally {
     closeHeader();
-    
   }
 }
 
@@ -116,7 +113,6 @@ function displayMeals(Meals) {
         `;
   });
   $(".displayContainer")[0].innerHTML = cartona;
-  //   console.log($(".displayContainer")[0]);
   $(".cardContainer").on("click", (e) => {
     console.log(e.target.id);
   });
@@ -130,24 +126,18 @@ async function getMealById(id) {
     const res = await fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
     );
-
     if (!res.ok) {
       throw new Error("Error will load the data");
     }
-
     const data = await res.json();
     const meals = await data.meals;
     const meal = await meals[0];
     spinnerStop();
     displayMealDesc(meal);
-
-    // console.log(meals[0]);
   } catch (error) {
     console.log(error);
     displayErrors(error);
   } finally {
-    
-    
   }
 }
 
@@ -216,7 +206,6 @@ async function getAllCategories() {
     }
     const data = await res.json();
     const allCategories = data.categories;
-    // console.log(allCategories);
     spinnerStop();
     displayAllCategories(allCategories);
   } catch (error) {
@@ -224,7 +213,6 @@ async function getAllCategories() {
     displayError(error);
   } finally {
     closeHeader();
-    
   }
 }
 
@@ -266,7 +254,6 @@ async function getCategory(name) {
     const data = await res.json();
     const categoryMeals = data.meals;
     console.log(categoryMeals);
-    //   displayAllCategories(allCategories)
     spinnerStop();
 
     displayMeals(categoryMeals);
@@ -331,8 +318,7 @@ async function getArea(areaName) {
     }
     const data = await res.json();
     const areaMeals = data.meals;
-    // console.log(areaMeals);
-    //   displayAllCategories(allCategories)
+
     spinnerStop();
 
     displayMeals(areaMeals);
@@ -352,7 +338,6 @@ async function getAllIng() {
     }
     const data = await res.json();
     const allIng = data.meals;
-    // console.log(allIng);
     spinnerStop();
 
     displIngredients(allIng);
@@ -375,9 +360,7 @@ async function getIng(ingName) {
     const data = await res.json();
     const ingMeals = data.meals;
     console.log(ingMeals);
-    //   displayAllCategories(allCategories)
     spinnerStop();
-
     displayMeals(ingMeals);
   } catch (error) {
     console.error(error);
@@ -476,7 +459,7 @@ function openContactUsSection() {
                         </div>
                     </div>
                 </div>
-                <button id="submitBtn" class="btn btn-outline-danger px-2 mt-3">Submit</button>
+                <button id="submitBtn" onclick ="submitContact()" disabled="" class="btn btn-outline-danger px-2 mt-3">Submit</button>
             </div>
         </div>
   `;
@@ -494,20 +477,15 @@ async function searchByFLetter(name) {
     } else {
       throw new Error("Error will This Input Ya User");
     }
-    
+
     const res = await fetch(API);
 
     if (!res.ok) {
       throw new Error("Error will load the data");
     }
-
     const data = await res.json();
     const meals = await data.meals;
-    
     displayMealsByFilter(meals);
-    // console.log(meals);
-
-    // console.log(meals[0]);
   } catch (error) {
     console.log(error);
     displayError(error);
@@ -521,12 +499,12 @@ async function searchByName(name) {
 
   try {
     if (regex.test(name)) {
-      let rigthName = name
+      let rigthName = name;
       API = `https://www.themealdb.com/api/json/v1/1/search.php?s=${rigthName}`;
     } else {
       throw new Error("Error will This Input Ya User");
     }
-    
+
     const res = await fetch(API);
 
     if (!res.ok) {
@@ -535,7 +513,6 @@ async function searchByName(name) {
 
     const data = await res.json();
     const meals = await data.meals;
-    
 
     displayMealsByFilter(meals);
     console.log(meals);
@@ -568,69 +545,52 @@ function displayMealsByFilter(Meals) {
   $("#viewContainerSearch")[0].innerHTML = cartona;
 }
 
-function inputsValidation(inputValue) {
-  var nameInputStatus = false;
-  var emailInputStatus = false;
-  var phoneInputStatus = false;
-  var ageInputStatus = false;
-  var passwordInputStatus = false;
-  var repasswordInputStatus = false;
+var nameInputStatus = false;
+var emailInputStatus = false;
+var phoneInputStatus = false;
+var ageInputStatus = false;
+var passwordInputStatus = false;
+var repasswordInputStatus = false;
 
-  // console.log(nameInputStatus && emailInputStatus && phoneInputStatus && ageInputStatus && passwordInputStatus &&  repasswordInputStatus);
+function inputsValidation(inputValue) {
   switch (inputValue.id) {
     case "nameInput":
       let nameInputRegex = /^[A-Za-z]*$/;
       if (nameInputRegex.test(inputValue.value)) {
-        // console.log("Valid Input");
         nameInputStatus = true;
-        console.log(nameInputStatus);
         $("#nameAlert").addClass("d-none");
-    
       } else {
-        // console.log("Error Input");
         nameInputStatus = false;
-        // $("#nameAlert").toggleClass("d-none");
         $("#nameAlert").removeClass("d-none");
-        
       }
       break;
     case "emailInput":
       let emailInput = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (emailInput.test(inputValue.value)) {
-        // console.log("Valid Input");
         emailInputStatus = true;
         $("#emailAlert").addClass("d-none");
       } else {
-        // console.log("Error Input");
         emailInputStatus = false;
         $("#emailAlert").removeClass("d-none");
-
       }
 
       break;
     case "phoneInput":
       let phoneInput = /^(?:\+20|0)(?:1\d{9}|[2-5]\d{7})$/;
       if (phoneInput.test(inputValue.value)) {
-        // console.log("Valid Input");
         $("#phoneAlert").addClass("d-none");
-        phoneInput = true;
+        phoneInputStatus = true;
       } else {
-        // console.log("Error Input");
-        phoneInput = false;
+        phoneInputStatus = false;
         $("#phoneAlert").removeClass("d-none");
-    
-
       }
 
       break;
     case "ageInput":
-      // let ageInput = /^\d+$/;
       if (inputValue.value > 0 && inputValue.value < 100) {
-        // console.log("Valid Input");
         ageInputStatus = true;
         $("#ageAlert").addClass("d-none");
       } else {
-        // console.log("Error Input");
         ageInputStatus = false;
         $("#ageAlert").removeClass("d-none");
       }
@@ -639,28 +599,21 @@ function inputsValidation(inputValue) {
     case "passwordInput":
       let passwordInput = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
       if (passwordInput.test(inputValue.value)) {
-        console.log("Valid Input");
         passwordInputStatus = true;
         $("#passwordAlert").addClass("d-none");
       } else {
-        console.log("Error Input");
         passwordInputStatus = false;
         $("#passwordAlert").removeClass("d-none");
       }
 
       break;
     case "repasswordInput":
-      // console.log(inputValue.value == password)
-      // console.log($('#passwordInput').val())
       if (inputValue.value == $("#passwordInput").val()) {
-        // console.log("Valid Input");
         repasswordInputStatus = true;
         $("#repasswordAlert").addClass("d-none");
       } else {
-        // console.log("Error Input pass2");
         repasswordInputStatus = false;
         $("#repasswordAlert").removeClass("d-none");
-
       }
 
       break;
@@ -670,11 +623,43 @@ function inputsValidation(inputValue) {
       break;
   }
 
-  // console.log(nameInputStatus)
-  //   if(nameInputStatus){
-  //   console.log("EveryThing Is True")
-  //   $("#submitBtn").toggleClass("bg-success");
-  // }else{
-  //   $("#submitBtn").attr("disabled", "");
-  // }
+  // console.log(
+  //   nameInputStatus &&
+  //     emailInputStatus &&
+  //     phoneInputStatus &&
+  //     ageInputStatus &&
+  //     passwordInputStatus &&
+  //     repasswordInputStatus
+  // );
 }
+
+function showSubmit() {
+  if (
+    nameInputStatus &&
+    emailInputStatus &&
+    phoneInputStatus &&
+    ageInputStatus &&
+    passwordInputStatus &&
+    repasswordInputStatus
+  ) {
+    $("#submitBtn").removeAttr("disabled");
+  } else {
+    $("#submitBtn").attr("disabled", "");
+  }
+}
+
+function submitContact() {
+  $("#nameInput").val("");
+  $("#emailInput").val("");
+  $("#phoneInput").val("");
+  $("#ageInput").val("");
+  $("#passwordInput").val("");
+  $("#repasswordInput").val("");
+  nameInputStatus = false;
+  emailInputStatus = false;
+  phoneInputStatus = false;
+  ageInputStatus = false;
+  passwordInputStatus = false;
+  repasswordInputStatus = false;
+}
+setInterval(showSubmit, 500);
